@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSteam, faMicrosoft} from "./icons.ts"
+import {IconDefinition} from '@fortawesome/fontawesome-svg-core';
 
 export const HomeComp = () => {
     return (
@@ -17,12 +18,13 @@ export const HomeComp = () => {
 interface ListProps {
     title: string;
     hrf: string;
-    logo: string;
+    logo: IconDefinition;
 }
 
 export const ListHm: React.FC<ListProps> = ({title, hrf, logo}) => {
     return (
-        <Link to={hrf} className="flex flex-row justify-start items-center hover:bg-white hover:text-slate-800 p-2 my-1 rounded-2xl border border-slate-600 w-200">
+        <Link to={hrf}
+              className="flex flex-row justify-start items-center hover:bg-white hover:text-slate-800 p-2 my-1 rounded-2xl border border-slate-600 w-200">
             <FontAwesomeIcon icon={logo}/>
             <p className="mx-2">{title}</p>
         </Link>
