@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { Home } from "./pages"
+import { Home, Steam } from "./pages"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 function App() {
@@ -9,12 +9,19 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <Header></Header>
+            {/* <Header></Header> */}
             <Home></Home>
             <Footer></Footer>
           </>
         } />
-        <Route path="/about" element={<h1>About</h1>} />
+        <Route path="/steam" element={
+          <>
+            <Header></Header>
+            <Steam></Steam>
+            <Footer></Footer>
+          </>
+        } />
+        <Route path="/about" element={<h1></h1>} />
       </Routes>
     </Router>
   )
