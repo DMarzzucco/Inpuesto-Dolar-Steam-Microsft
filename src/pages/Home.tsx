@@ -1,8 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AdverHome, HomeComp } from "../components/Comps.tsx";
 import { faMicrosoft, faSteam } from "../components/icons.ts";
+import { useState } from "react";
 
 function Home() {
+    const [abrirCard, setAbrirCard] = useState<boolean>(false);
+    const abrirMenu = () => {
+        setAbrirCard(!abrirCard);
+    }
+    const closeMenu = () => { setAbrirCard(false) }
     return (
         <>
             <section className="flex flex-col  justify-center items-center w-full h-screen">
@@ -22,7 +28,8 @@ function Home() {
                 </div>
                 <h1 className="text-2xl ">Elige tu plataforma</h1>
                 <HomeComp />
-                <AdverHome />
+                <button onClick={abrirMenu}>Leer Antes</button>
+                {abrirCard && <AdverHome onClick={closeMenu} />}
             </section>
         </>
     )
