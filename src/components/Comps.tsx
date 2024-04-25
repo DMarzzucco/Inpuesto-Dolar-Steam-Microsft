@@ -9,7 +9,7 @@ export const HomeComp = () => {
         <div className="border border-slate-400 rounded-2xl my-2 p-2">
             <ul className="flex flex-col justify-center items-center p-3">
                 <ListHm color='gray' logo={faSteam} hrf={"/steam"} title="Steam" />
-                <ListHm color='skyblue' logo={faMicrosoft} hrf={"https://www.youtube.com/"} title="Microsft" />
+                <ListHm color='skyblue' logo={faMicrosoft} hrf={"/microsoft"} title="Microsft" />
             </ul>
         </div>
     )
@@ -46,3 +46,6 @@ export const ListF: React.FC<FListProps> = ({ hrf, icon }) => {
         </Link>
     )
 }
+
+// prueba
+
