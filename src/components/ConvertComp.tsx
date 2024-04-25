@@ -1,10 +1,11 @@
-import { useState, ChangeEvent } from "react";
+import {useState, ChangeEvent} from "react";
+
 interface Numpros {
     num: number;
     title: string;
 }
 
-export const Bas: React.FC<Numpros> = ({ num, title }) => {
+export const Bas: React.FC<Numpros> = ({num, title}) => {
     const [valorInput, setValorInput] = useState<string>('');
     const [resultado, setResultado] = useState<number | null>(null);
 
@@ -22,7 +23,7 @@ export const Bas: React.FC<Numpros> = ({ num, title }) => {
             <h1>{title}</h1>
 
             <div>
-                <input type="text" placeholder="valor" value={valorInput} onChange={handleInputChange} />
+                <input type="text" placeholder="valor" value={valorInput} onChange={handleInputChange}/>
                 <button onClick={sumarYMostrarResultado}>Enviar</button>
             </div>
 
