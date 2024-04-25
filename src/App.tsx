@@ -8,7 +8,6 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            {/* <Header></Header> */}
             <Home></Home>
             <Footer></Footer>
           </>

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AdverHome, HomeComp } from "../components/Comps.tsx";
-import { faMicrosoft, faSteam } from "@fortawesome/free-brands-svg-icons";
+import { faMicrosoft, faSteam } from "../components/icons.ts";
 
 function Home() {
     return (
