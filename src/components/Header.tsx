@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { faChevronLeft, faBarsStaggered } from "./icons"
 
 function Header() {
     const [openMenu, setOpenMenu] = useState(false)
@@ -7,9 +9,13 @@ function Header() {
     const DesplegarMenu = () => { setOpenMenu(!openMenu) };
     const CloseMenu = () => { setOpenMenu(false) };
     return (
-        <header className="flex flex-row justify-between items-center w-full">
-            <h1>Header</h1>
-            <button onClick={DesplegarMenu}>menu</button>
+        <header className="flex px-2 flex-row justify-between items-center w-full">
+            <Link to="/">
+                <FontAwesomeIcon icon={faChevronLeft} />
+            </Link>
+            <button onClick={DesplegarMenu}>
+                <FontAwesomeIcon icon={faBarsStaggered} />
+            </button>
             {/*  */}
             {openMenu && <div className="menu" onClick={CloseMenu}>
                 <Link to="/">Home</Link>

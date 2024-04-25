@@ -1,13 +1,11 @@
 import { Bas } from "../components/ConvertComp";
+import {faMicrosoft} from "../components/icons.ts"
 
 function Microsft() {
     return (
         <>
             <section className="flex flex-col w-full h-screen justify-center items-center">
-                <div>
-                    <h1>MICROSOFT PAGE</h1>
-                </div>
-                <Bas num={10} title="Micro"></Bas>
+                <Bas color="skyblue" icon={faMicrosoft} num={1.60} title="Microsoft"></Bas>
             </section>
         </>
     )
