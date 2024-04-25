@@ -47,5 +47,34 @@ export const ListF: React.FC<FListProps> = ({ hrf, icon }) => {
     )
 }
 
-// prueba
+//advertencia
+interface AdvertProps {
+    title: string;
+    text: string;
+}
+
+export const Advert: React.FC<AdvertProps> = ({ title, text }) => {
+    return (
+        <div>
+            <h1>{title}</h1>
+            <p>{text}</p>
+        </div>
+    )
+}
+
+// Home 
+
+export const AdverHome = () => {
+    return (
+        <div className='w-300 border border-red-400 bg-red-900 p-3 rounded-xl flex flex-col justify-center items-center'>
+            <h1 className='font-bold p-1 text-xl my-3'>ADVERTENCIA</h1>
+            <p className='text-center'>
+                Los resultados obtenidos, son un aproximado cercano que se puede obtener. <br /> El total real dependerá en sí de los impuestos implementados por el banco que se use.
+            </p>
+            <span className='font-bold my-3 text-center'>
+                Última Actualización <br /> 25-04-2022
+            </span>
+        </div>
+    )
+}
 
