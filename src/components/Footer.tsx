@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { ListF } from "./Comps";
-import { faGithubAlt, faLinkedin } from "./icons.ts";
+import {Link} from "react-router-dom";
+import {ListF} from "./Comps";
+import {faGithubAlt, faLinkedin} from "./icons.ts";
 
 function Footer() {
     return (
@@ -8,12 +8,12 @@ function Footer() {
             <div className="max-w-100 grid grid-cols-2 gap-1 justify-center items-center my-2">
                 <div className="flex justify-center items-center">
                     <Link to="https://systemarzz.netlify.app/">
-                        <img className="h-60" src="https://imgbb.host/images/3LXuW.png" alt="" />
+                        <img className="h-60" src="https://imgbb.host/images/3LXuW.png" alt=""/>
                     </Link>
                 </div>
                 <div className="flex flex-row justify-center border-l mx-2 border-slate-400 items-center">
-                    <ListF hrf="https://github.com/DMarzzucco/Inpuesto-Dolar-Steam-Microsft.git" icon={faGithubAlt} />
-                    <ListF hrf="https://www.linkedin.com/in/dario-marzzucco-597090283/" icon={faLinkedin} />
+                    <ListF hrf="https://github.com/DMarzzucco/Inpuesto-Dolar-Steam-Microsft.git" icon={faGithubAlt}/>
+                    <ListF hrf="https://www.linkedin.com/in/dario-marzzucco-597090283/" icon={faLinkedin}/>
                 </div>
             </div>
             <div className="flex my-px py-1 bg-bgk w-full text-slate-400">
@@ -29,4 +29,5 @@ function Footer() {
         </footer>
     )
 }
+
 export default Footer;
