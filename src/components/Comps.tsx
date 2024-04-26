@@ -99,38 +99,55 @@ export const ErrorComp = () => {
 
 // resultado
 interface ResultProps {
-    value: string;
     result: number;
+    child: JSX.Element;
 }
 
-export const ResultComp: React.FC<ResultProps> = ({ value, result }) => {
+export const ResultComp: React.FC<ResultProps> = ({ result, child }) => {
     return (
-        <div className="border border-slate-400 bg-yellow-700 rounded-2xl my-2 p-2">
-            <ul className='flex flex-col justify-center items-center border-b my-2 p-1'>
-                <li>Impuesto tal{value}</li>
-                <li>Impuesto secundario</li>
-            </ul>
-            <h2 className='font-bold'>TOTAL APROXIMADO:{result} $</h2>
+        <div className="border border-slate-400 bg-slate-700 rounded-2xl my-2 p-2">
+            <div className='flex flex-col my-2 p-1'>
+                <h3 className='text-slate-300 font-semibold'>Total de impuestos nacionales y provinciales:</h3>
+                <p className='text-20 font-bold'>60,00%</p>
+            </div>
+            <div className='flex flex-col border-b my-2 p-1'>
+                {child}
+            </div>
+            <div>
+                <h2 className='font-bold'>TOTAL APROXIMADO: </h2>
+                <h1 className='font-bold text-20'>{result}AR$</h1>
+            </div>
         </div>
     )
 }
 // MenuNav
+interface BtProp {
+    onClick: MouseEventHandler<HTMLButtonElement>;
+}
 
-export const Menu = () => {
+export const Menunav: React.FC<BtProp> = ({ onClick }) => {
     return (
-        <div>
-            <LinkNav path={'/Steam'}/>
-            <LinkNav path={'/Microsoft'}/>
+        <div className='flex flex-col justify-start items-start'>
+            <button onClick={onClick} className='w-200 flex justify-end my-2'>
+                <FontAwesomeIcon icon={faCircleXmark} className='text-white text-30 hover:text-red-700' />
+            </button>
+            <LinkNav logo={faSteam} title='Steam' path={'/Steam'} />
+            <LinkNav logo={faMicrosoft} title='Microsoft' path={'/Microsoft'} />
         </div>
     )
 }
 
 interface MenuProps {
+    title: string;
     path: string;
+    logo: IconDefinition;
 }
 
-export const LinkNav: React.FC<MenuProps> = ({ path }) => {
+export const LinkNav: React.FC<MenuProps> = ({ path, title, logo }) => {
     return (
-        <Link to={path}></Link>
+        <Link to={path} className=' w-200 flex flex-row justify-start items-center p-2 border rounded-xl my-1 hover:bg-slate-300 hover:text-slate-900'>
+            <FontAwesomeIcon icon={logo} />
+            <p className='mx-2'>{title}</p>
+        </Link>
     )
 }

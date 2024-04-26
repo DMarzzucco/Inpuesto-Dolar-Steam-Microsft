@@ -8,7 +8,7 @@ function Footer() {
             <div className="max-w-100 grid grid-cols-2 gap-1 justify-center items-center my-2">
                 <div className="flex justify-center items-center">
                     <Link to="https://systemarzz.netlify.app/">
-                        <img className="h-60" src="https://imgbb.host/images/3LXuW.png" alt=""/>
+                        <img className="ns:h-40 h-60" src="https://imgbb.host/images/3LXuW.png" alt=""/>
                     </Link>
                 </div>
                 <div className="flex flex-row justify-center border-l mx-2 border-slate-400 items-center">
@@ -16,7 +16,7 @@ function Footer() {
                     <ListF hrf="https://www.linkedin.com/in/dario-marzzucco-597090283/" icon={faLinkedin}/>
                 </div>
             </div>
-            <div className="flex my-px py-1 bg-bgk w-full text-slate-400">
+            <div className="flex my-px py-1 ns:text-12 ns:justify-center bg-bgk w-full text-slate-400">
                 <p className="footer:text-10">
                     &copy; 2024
                 </p>

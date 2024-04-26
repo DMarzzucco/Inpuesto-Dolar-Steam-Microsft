@@ -1,7 +1,7 @@
-import {ChangeEvent, useState} from "react";
-import {faMicrosoft} from "../components/icons.ts"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {ErrorComp, ResultComp} from "../components/Comps.tsx";
+import { ChangeEvent, useState } from "react";
+import { faMicrosoft } from "../components/icons.ts"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ErrorComp, ResultComp } from "../components/Comps.tsx";
 
 function Microsft() {
     const [valorInput, setValorInput] = useState<string>('');
@@ -17,7 +17,7 @@ function Microsft() {
     const ecuation = () => {
         const value: number = parseFloat(valorInput);
 
-        if (isNaN(value)) {
+        if (isNaN(value) || /^\d+$/.test(valorInput) === false) {
             setError('Ingrese un valor valido');
             setValorInput('');
             setTimeout(() => setError(''), 1000)
@@ -26,7 +26,7 @@ function Microsft() {
         }
 
         const result: number = value * num;
-        const resultFormat: string = result.toLocaleString('es-AR', {minimumFractionDigits: 4});
+        const resultFormat: string = result.toLocaleString('es-AR', { minimumFractionDigits: 4 });
         setResultado(parseFloat(resultFormat));
     }
     return (
@@ -34,20 +34,26 @@ function Microsft() {
             <section className="flex flex-col w-full h-screen justify-center items-center">
                 <div className=" flex flex-col justify-center items-center border border-slate-400 p-10 rounded-xl">
                     <div className="flex flex-col justify-center items-center">
-                        <FontAwesomeIcon className="text-30" icon={faMicrosoft} color="skyBlue"/>
+                        <FontAwesomeIcon className="text-30" icon={faMicrosoft} color="skyBlue" />
                         <h1 className="text-xl m-2">Steam</h1>
                     </div>
                     <div className="flex flex-col justify-center items-center">
-                        <input className=" text-center rounded-xl border border-slate-400 p-2" type="text"
-                               placeholder="$0.00" value={valorInput} onChange={takeInput}/>
+                        <input className=" text-center rounded-xl border bg-bgk border-slate-400 p-2" type="text"
+                            placeholder="$0.00" value={valorInput} onChange={takeInput} />
                         <button
                             className="hover:bg-slate-200 hover:text-slate-800 py-1 px-2 border m-2 border-slate-400 rounded-xl"
                             onClick={ecuation}>Enviar
                         </button>
                     </div>
                     {/* Result Template */}
-                    {resultado !== null && <ResultComp value="60" result={resultado}/>}
-                    {error !== '' && <ErrorComp/>}
+                    {resultado !== null &&
+                        <ResultComp result={resultado} child={
+                            <div className="flex flex-col justify-center items-center">
+                                <h1 className="text-xl m-2"></h1>
+                            </div>
+                        } />
+                    }
+                    {error !== '' && <ErrorComp />}
                 </div>
             </section>
         </>
