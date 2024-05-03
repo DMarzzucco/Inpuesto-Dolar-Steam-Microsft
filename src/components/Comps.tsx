@@ -125,7 +125,7 @@ export const ResultComp: React.FC<ResultProps> = ({ result, child }) => {
     onClick: MouseEventHandler<HTMLButtonElement>;
 }*/
 
-export const Menunav /*: React.FC<BtProp>*/ = (/*{ onClick }*/) => {
+export const Menunav = () => {
     return (
         <div className='flex flex-col justify-start items-start'>
             {/*<button onClick={onClick} className='w-200 flex justify-end my-2'>
