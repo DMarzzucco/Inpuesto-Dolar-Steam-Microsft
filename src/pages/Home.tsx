@@ -28,7 +28,7 @@ function Home() {
                 </div>
                 <h1 className="text-2xl ">Elige tu plataforma</h1>
                 <HomeComp />
-                <button onClick={abrirMenu}>Leer Antes</button>
+                <button className={`${abrirCard ? 'hidden' : ''}`} onClick={abrirMenu}>Leer Antes</button>
                 {abrirCard && <AdverHome onClick={closeMenu} />}
             </section>
         </>
