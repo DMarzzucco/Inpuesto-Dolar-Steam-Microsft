@@ -26,6 +26,7 @@ function Steam() {
         }
 
         const result: number = values * num;
+        setValorInput('');
         const resultadoRound: number = Math.round(result * 100) / 100;
         const resultFormat: string = resultadoRound.toLocaleString('es-AR', { minimumFractionDigits: 2 });
         setResultado(parseFloat(resultFormat));

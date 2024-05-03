@@ -26,6 +26,7 @@ function Microsft() {
         }
 
         const result: number = value * num;
+        setValorInput('');
         const resultFormat: string = result.toLocaleString('es-AR', { minimumFractionDigits: 4 });
         setResultado(parseFloat(resultFormat));
     }

@@ -121,16 +121,9 @@ export const ResultComp: React.FC<ResultProps> = ({ result, child }) => {
     )
 }
 // MenuNav
-interface BtProp {
-    onClick: MouseEventHandler<HTMLButtonElement>;
-}
-
-export const Menunav: React.FC<BtProp> = ({onClick}) => {
+export const Menunav = () => {
     return (
         <div className='flex flex-col justify-start items-start'>
-            {/*<button onClick={onClick} className='w-200 flex justify-end my-2'>
-                <FontAwesomeIcon icon={faCircleXmark} className='text-white text-30 hover:text-red-700' />
-            </button>*/}
             <LinkNav logo={faSteam} title='Steam' path={'/Steam'} />
             <LinkNav logo={faMicrosoft} title='Microsoft' path={'/Microsoft'} />
         </div>
