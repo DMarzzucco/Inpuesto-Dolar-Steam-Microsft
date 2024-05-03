@@ -35,7 +35,7 @@ function Microsft() {
                 <div className=" flex flex-col justify-center items-center border border-slate-400 p-10 rounded-xl">
                     <div className="flex flex-col justify-center items-center">
                         <FontAwesomeIcon className="text-30" icon={faMicrosoft} color="skyBlue" />
-                        <h1 className="text-xl m-2">Steam</h1>
+                        <h1 className="text-xl m-2">Microsoft</h1>
                     </div>
                     <div className="flex flex-col justify-center items-center">
                         <input className=" text-center rounded-xl border bg-bgk border-slate-400 p-2" type="text"
