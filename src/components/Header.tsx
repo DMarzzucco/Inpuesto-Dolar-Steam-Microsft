@@ -25,7 +25,7 @@ function Header() {
             </div>
             {/*  */}
             {openMenu &&
-                <section onClick={closeMenu} className='mt-80 h-screen w-full bg-black bg-opacity-70 flex flex-col justify-center items-center'>
+                <section onClick={closeMenu} className='h-screen w-full bg-black bg-opacity-70 flex flex-col justify-center items-center'>
                     <Menunav onClick={closeMenu} />
                 </section>
             }
