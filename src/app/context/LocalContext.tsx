@@ -13,18 +13,19 @@ const AuthLocalContext: React.FC<{ children: React.ReactNode }> = ({ children })
     const [booleanState, dispatch] = React.useReducer(ReducerBoolean, booleanItems)
     const [values, setValues] = React.useState<StringProps>(StringItems)
 
-    const takeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const takeInput = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
         if (name === "steam") { setValues((pre) => ({ ...pre, steam: value })); }
         if (name === "microsoft") { setValues((pre) => ({ ...pre, microsoft: value })) }
-    }
+    }, [])
     /**
      * Ecuation
      * @param state 
      * @param op 
      * @returns 
      */
-    const ecuation = (state: ecuationProp, op: OpEcuation) => {
+    const ecuation = React.useCallback((state: ecuationProp, op: OpEcuation) => {
+
         const value: number = parseFloat(state.inputValue)
 
         if (isNaN(value) || /^\d+$/.test(state.inputValue) === false) {
@@ -51,17 +52,17 @@ const AuthLocalContext: React.FC<{ children: React.ReactNode }> = ({ children })
                 setValues((pre) => ({ ...pre, steam: "" }))
                 return
         }
-    }
+    }, [setResultado, setValues, dispatch])
     /**
      * ButtonBoolean
      * @param op 
      * @returns 
      */
-    const ButtonBoolean = (op: Action) => {
+    const ButtonBoolean = React.useCallback((op: Action) => {
         switch (op.type) {
             case "openCard":
                 dispatch({ type: "openCard" });
-                dispatch({ type: "closeMicrosft" });
+                dispatch({ type: "closeMicrosoft" });
                 dispatch({ type: "closeSteam" });
                 setResultado(null)
                 return
@@ -69,7 +70,7 @@ const AuthLocalContext: React.FC<{ children: React.ReactNode }> = ({ children })
                 return dispatch({ type: "closeCard" })
             case "openSteam":
                 dispatch({ type: "openSteam" })
-                dispatch({ type: "closeMicrosft" })
+                dispatch({ type: "closeMicrosoft" })
                 setResultado(null)
                 return
             case "closeSteam":
@@ -79,14 +80,25 @@ const AuthLocalContext: React.FC<{ children: React.ReactNode }> = ({ children })
                 dispatch({ type: "closeSteam" })
                 setResultado(null)
                 return
-            case "closeMicrosft":
-                return dispatch({ type: "closeMicrosft" })
+            case "closeMicrosoft":
+                return dispatch({ type: "closeMicrosoft" })
             default:
                 throw new Error
         }
-    }
+    }, [dispatch, setResultado])
+
+    const ContextValues = React.useMemo(() => ({
+        booleanState,
+        ButtonBoolean,
+        resultado,
+        takeInput,
+        ecuation,
+        values,
+        setValues,
+    }), [booleanState, ButtonBoolean, resultado, takeInput, ecuation, values, setValues])
+
     return (
-        <LocalContext.Provider value={{ booleanState, ButtonBoolean, resultado, takeInput, ecuation, values }}>
+        <LocalContext.Provider value={ContextValues}>
             {children}
         </LocalContext.Provider>
     )

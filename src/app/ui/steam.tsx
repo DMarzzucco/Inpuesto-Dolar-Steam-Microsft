@@ -2,20 +2,25 @@
 
 import React from "react";
 import { faSteam } from "@/assets"
-import UiCompsPage from "./ui.comps";
 import { useLocalContext } from "../context/LocalContext";
 import { ecuationProp } from "@/ts";
+import { OpTemplate } from "./ui.comps";
 
-export const Steam: React.FC = () => {
-    const ui = new UiCompsPage()
+export const Steam: React.FC = React.memo(() => {
+
     const { ...pre } = useLocalContext()
+
     const State: ecuationProp = {
         inputValue: pre.values.steam,
         factor: 1585.79,
         precision: 2
     }
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); pre.ecuation(State, { type: "steam" }) }
-    return (<ui.OpTemplate
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        pre.ecuation(State, { type: "steam" })
+    }
+
+    return (<OpTemplate
         click={() => { pre.ButtonBoolean({ type: "closeSteam" }) }}
         icon={faSteam}
         color="gray"
@@ -25,5 +30,7 @@ export const Steam: React.FC = () => {
         nameInput="steam"
         result={pre.resultado}
         factor={State}
+
     />);
-}
+})
+Steam.displayName = 'Steam';

@@ -12,7 +12,7 @@ export default function ReducerBoolean(state: booleanProps, action: Action) {
             return { ...state, steam: false }
         case "openMicrosoft":
             return { ...state, microsoft: true }
-        case "closeMicrosft":
+        case "closeMicrosoft":
             return { ...state, microsoft: false }
         case "error":
             return { ...state, error: true }

@@ -4,7 +4,7 @@ export type Action =
     | { type: "openSteam" }
     | { type: "closeSteam" }
     | { type: "openMicrosoft" }
-    | { type: "closeMicrosft" }
+    | { type: "closeMicrosoft" }
     | { type: "error" }
     | { type: "no_error" }
 

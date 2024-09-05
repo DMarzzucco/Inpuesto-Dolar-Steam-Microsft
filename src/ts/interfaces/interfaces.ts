@@ -46,4 +46,6 @@ export interface ContextProps {
     ecuation: (state: ecuationProp, op: OpEcuation) => void;
     ButtonBoolean: (op: Action) => void;
     values: StringProps
+
+    setValues:React.Dispatch<React.SetStateAction<StringProps>>
 }
