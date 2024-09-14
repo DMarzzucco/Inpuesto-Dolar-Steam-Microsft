@@ -22,9 +22,9 @@ export const Steam: React.FC = React.memo(() => {
 
     return (<OpTemplate
         click={() => { pre.ButtonBoolean({ type: "closeSteam" }) }}
-        icon={faSteam}
+        logo={faSteam}
         color="gray"
-        Name="Steam"
+        title="Steam"
         onSubmit={handleSubmit}
         value={pre.values.steam}
         nameInput="steam"

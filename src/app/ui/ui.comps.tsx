@@ -12,15 +12,27 @@ import { useLocalContext } from "../context/LocalContext";
 export const HomeComponent: React.FC = () => {
     const { ...pre } = useLocalContext()
     return (
-        <div className="flex flex-col justify-center items-center border border-slate-400 rounded-2xl my-2 px-2 py-4 " >
-            <h1 className="text-2xl font-semibold ">Elige tu Plataforma</h1>
-            <ul className="flex flex-col justify-center items-center p-3">
-                <ListHm color='gray' logo={faSteam} click={() => { pre.ButtonBoolean({ type: "openSteam" }) }} title="Steam" />
-                <ListHm color='skyblue' logo={faMicrosoft} click={() => { pre.ButtonBoolean({ type: "openMicrosoft" }) }} title="Microsoft" />
-            </ul>
+        <div className="flex flex-col justify-center items-center border border-slate-400 rounded-2xl shadow-lg p-6 w-full ">
+        <h1 className="text-3xl font-bold mb-6 text-gray-300">Elige tu Plataforma</h1>
+        <ul className="flex flex-col space-y-4 w-full">
+            <ListHm 
+                color='gray' 
+                logo={faSteam} 
+                click={() => { pre.ButtonBoolean({ type: "openSteam" }) }} 
+                title="Steam" 
+            />
+            <ListHm 
+                color='skyblue' 
+                logo={faMicrosoft} 
+                click={() => { pre.ButtonBoolean({ type: "openMicrosoft" }) }} 
+                title="Microsoft" 
+            />
+        </ul>
+        <div className="mt-6 w-full">
             {pre.booleanState.steam && <Steam />}
             {pre.booleanState.microsoft && <Microsoft />}
         </div>
+    </div>
     )
 }
 HomeComponent.displayName = "HomeComponent";
@@ -28,7 +40,7 @@ HomeComponent.displayName = "HomeComponent";
 export const ListHm: React.FC<ListProps> = ({ ...pre }) => {
     return (
         <button onClick={pre.click}
-            className="flex flex-row justify-start items-center hover:bg-white hover:text-slate-800 p-2 my-1 rounded-2xl border border-slate-600 md:w-300 w-200">
+            className="flex flex-row justify-start items-center hover:bg-white hover:text-slate-800 p-2 my-1 rounded-2xl border border-slate-600 md:w-full w-200">
             <FontAwesomeIcon icon={pre.logo} color={pre.color} />
             <p className="mx-2">{pre.title}</p>
         </button>
@@ -107,8 +119,8 @@ export const OpTemplate: React.FC<TemplateProp> = React.memo(({ ...pre }) => {
                 <FontAwesomeIcon icon={faCircleXmark} />
             </button>
             <div className="flex flex-col justify-center items-center">
-                <FontAwesomeIcon className="text-30" icon={pre.icon} color={pre.color} />
-                <h1 className="text-xl m-2">{pre.Name}</h1>
+                <FontAwesomeIcon className="text-30" icon={pre.logo} color={pre.color} />
+                <h1 className="text-xl m-2">{pre.title}</h1>
             </div>
             <form onSubmit={pre.onSubmit} className="flex flex-col justify-center items-center">
                 <input

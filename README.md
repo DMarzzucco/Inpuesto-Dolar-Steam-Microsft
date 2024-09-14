@@ -1,6 +1,8 @@
 # Calculadorra ARS en Steam y Microsoft
 
-Esta calculadora te permite podes saber cuanto realmente te va a salir un producto comprado en una de estas tiendas. 
+![Mi genial imagen](public/cover.jpg)
+
+Esta app te permite poder transformar de dolar tarjeta a AR$ y calcular mas inpuesto el valor real que te puede llegar a salir un producto comprado en una de estas plataformas. 
 
 >[!NOTE]
 >la aplicacion tiene ciertos problemas de re-renderizado, por falta de tiempo y por situaciones personales no he podido arreglarlos aun. 

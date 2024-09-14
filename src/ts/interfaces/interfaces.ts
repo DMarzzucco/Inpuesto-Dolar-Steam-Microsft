@@ -4,25 +4,19 @@ import React from "react";
 
 export interface MenuProps {
     title: string;
+    logo: IconDefinition;
     path: string;
-    logo: IconDefinition;
 }
-export interface ListProps {
-    title: string;
+export interface ListProps extends Omit<MenuProps, "path"> {
     click: () => void;
-    logo: IconDefinition;
     color: string;
 }
-export interface TemplateProp {
-    click: () => void;
-    icon: IconDefinition;
-    color:string;
-    Name: string;
+export interface TemplateProp extends ListProps {
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
     value: string | number | readonly string[] | undefined;
     nameInput: string;
     result: number | null;
-    factor:ecuationProp
+    factor: ecuationProp
 }
 export interface booleanProps {
     card: boolean;
@@ -47,5 +41,5 @@ export interface ContextProps {
     ButtonBoolean: (op: Action) => void;
     values: StringProps
 
-    setValues:React.Dispatch<React.SetStateAction<StringProps>>
+    setValues: React.Dispatch<React.SetStateAction<StringProps>>
 }

@@ -19,9 +19,9 @@ export const Microsoft: React.FC = React.memo(() => {
     }
     return (<OpTemplate
         click={() => { pre.ButtonBoolean({ type: "closeMicrosoft" }) }}
-        icon={faMicrosoft}
+        logo={faMicrosoft}
         color="sky-blue"
-        Name="Microsoft"
+        title="Microsoft"
         onSubmit={handleSubmit}
         value={pre.values.microsoft}
         nameInput="microsoft"
